@@ -6,15 +6,15 @@ mut:
 	window &ui.Window = unsafe { nil }
 
 	log      string
-	todos    Observable[string]
-	title    Observable[string]
+	todos    State[string] = Observable[string]{}
+	title    string
 	new_todo string
 }
 
 fn main() {
 	mut app := &App{}
 
-	app.title = state('Todo List App in V')
+	app.title = 'Todo List App in V'
 
 	input := ui.textbox(
 		max_len: 50
@@ -57,5 +57,5 @@ fn main() {
 }
 
 fn (mut app App) add_todo(button &ui.Button) {
-	app.todos.set(app.todos.get() + '\n' + app.new_todo)
+	app.todos.try_set(app.todos.get() + '\n' + app.new_todo)
 }
