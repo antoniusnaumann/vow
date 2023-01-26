@@ -24,6 +24,6 @@ pub fn (mut self Observable[T]) set(value T) {
 	self.value = value
 }
 
-pub fn (mut self Observable[T]) observe(observer Observer[T]) {
-	self.observers << observer
+pub fn (self &Observable[T]) observe(observer Observer[T]) {
+	unsafe { self.observers << observer }
 }

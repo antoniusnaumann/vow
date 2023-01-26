@@ -1,6 +1,6 @@
 import ui
 
-pub fn label(mut text Observable[string]) &ui.Label {
+pub fn label(text &Observable[string]) &ui.Label {
 	initial_text := text.get()
 
 	mut label := ui.label(
