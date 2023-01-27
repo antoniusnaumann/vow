@@ -35,7 +35,7 @@ fn main() {
 						width: 200
 						spacing: 13
 						children: [
-							label(&app.title),
+							label(text: &app.title),
 							ui.row(
 								children: [
 									input,
@@ -45,7 +45,7 @@ fn main() {
 									),
 								]
 							),
-							label(&app.todos),
+							label(text: &app.todos),
 						]
 					),
 				]
